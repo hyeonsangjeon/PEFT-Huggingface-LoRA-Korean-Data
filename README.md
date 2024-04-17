@@ -133,3 +133,13 @@ LoRA 기술에 대한 자세한 내용은 [LoRA 논문](https://arxiv.org/abs/21
 - [KLUE Benchmark](https://github.com/KLUE-benchmark/KLUE)
 - [klue/roberta-large](https://huggingface.co/klue/roberta-large)
 - [한국어 영화 리뷰 데이터셋](https://github.com/e9t/nsmc)
+
+
+### AWS Samples 공식 Github 실습 배포 자료 안내
+
+본 자료는 공식 AWS Samples Github에 배포됩니다. 현재 실습 자료는 AWS Samples 공식 자료보다 항상 최신 선반영됩니다.
+- 반영된 링크: genai/aws-gen-ai-kr/30_fine_tune/02-tutorial-huggingface-peft-basic-lora
+- 링크: https://github.com/aws-samples/aws-ai-ml-workshop-kr/tree/master/genai/aws-gen-ai-kr/30_fine_tune/02-tutorial-huggingface-peft-basic-lora
+- 최근 반영일: 2024.04.20
+
+
