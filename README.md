@@ -7,7 +7,7 @@
 - [사용법](#사용법)
 - [모델 아키텍처](#모델 아키텍처)
 - [학습](#학습)
-- [Inference](#inference)
+- [추론](#추론)
 - [References](#references)
 
 ## 환경설정
@@ -26,8 +26,8 @@
 
 1. **Naver sentiment movie corpus 데이터셋 로드**:
 
-Naver sentiment movie corpus은 한국어 영화 리뷰에서 가져온 문장들로 구성되어 있으며, 감정 라벨이 지정되어 있습니다. 
-SST-2 데이터셋에 대한 자세한 정보는 [여기](https://github.com/e9t/nsmc)에서 확인할 수 있습니다.
+Naver sentiment movie corpus은 한국어 영화 리뷰에서 가져온 문장들로 구성되어 있으며, 감정 라벨이 지정되어 있습니다.
+한국어 영화 리뷰 데이터셋에 대한 자세한 정보는 [여기](https://github.com/e9t/nsmc)에서 확인할 수 있습니다.
 코드는 dataframe으로 로드한 다음, Hugging Face의 `datasets` 라이브러리를 사용하여 데이터셋을 변환합니다.
 
 2. **LoRA 모델 아키텍처 정의**:
@@ -83,7 +83,7 @@ SST-2 데이터셋에 대한 자세한 정보는 [여기](https://github.com/e9t
 
 LoRA 기술에 대한 자세한 내용은 [LoRA 논문](https://arxiv.org/abs/2106.09685)을 참조하세요.
 
-예제로 사용한 Attention Model은 RoBERTa이며 한국어 문장이 재학습되어있는 [klue/roberta-large](https://huggingface.co/klue/roberta-large) 를 사용해서 비교적 적은 epoch만으로도 높은 한국어 인식 성능의 lora 파인튜닝을 얻을 수 있습니다.  klue의 논문은[여기](https://arxiv.org/pdf/2105.09680.pdf)서 확인합니다. 
+예제로 사용한 Attention Model은 RoBERTa이며 한국어 문장이 재학습되어있는 [klue/roberta-large](https://huggingface.co/klue/roberta-large) 를 사용해서 비교적 적은 epoch만으로도 높은 한국어 인식 성능의 lora 파인튜닝을 얻을 수 있습니다. klue의 논문은[여기](https://arxiv.org/pdf/2105.09680.pdf)서 확인합니다. 
 기본 RoBERTa는 self-supervised 방식으로 대규모 영어 데이터 코퍼스에 대해 사전 훈련된 변환기 모델입니다. 텍스트에서 입력 및 레이블을 생성하는 자동 프로세스를 통해 인간이 어떤 방식으로든 레이블을 지정하지 않고 원시 텍스트에 대해서만 사전 학습되었음을 의미합니다.
 
 ---------------------------------------
@@ -114,18 +114,19 @@ LoRA 기술에 대한 자세한 내용은 [LoRA 논문](https://arxiv.org/abs/21
 
 4. 모델은 입력 텍스트에 긍정적인 감정이 있는지 부정적인 감정이 있는지 예측합니다.
 
-## 학습되지 않은 klue/roberta 모델 예측
+## 학습되지 않은 klue/roberta-large 모델 예측
 
-![학습되지 않은 klue/roberta 모델 예측](img/untrained_model_predictions.png)
+![학습되지 않은 klue/roberta-large 모델 예측](img/untrained_model_predictions.png)
 
 
-## PEFT LoRA 학습된 모델 예측
+## PEFT LoRA 학습된 klue/roberta-large 모델 예측
 
-![PEFT LoRA 학습된 모델 예측](img/trained_model_predictions.png)
+![PEFT LoRA 학습된 klue/roberta-large 모델 예측](img/trained_model_predictions.png)
 
 
 ## References
-
-- [SST-2 Dataset](https://huggingface.co/datasets/glue/viewer/sst2)
 - [LoRA Paper](https://arxiv.org/abs/2106.09685)
-
+- [KLUE Paper](https://arxiv.org/pdf/2105.09680.pdf)
+- [KLUE Benchmark](https://github.com/KLUE-benchmark/KLUE)
+- [klue/roberta-large](https://huggingface.co/klue/roberta-large)
+- [한국어 영화 리뷰 데이터셋](https://github.com/e9t/nsmc)
