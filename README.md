@@ -1,11 +1,14 @@
 # PEFT-Huggingface-LoRA-Korean-Data
 
-이 예제는 "Fine-tuning Large Language Models(LLMs)" 논문을 기반으로 만들어졌으며, SageMaker에서 Naver sentiment movie corpus 한국어 데이터셋을 사용하여 Hugginface의 LoraConfig 클래스를 사용한 LoRA의 low rank Adaptation 파인튜닝 기법으로 텍스트 분류 모델을 훈련하는 코드를 포함하고 있습니다. LoRA는 언어 모델을 더욱 적응성 있고 효율적으로 만드는 방법입니다. 각 작업에 대해 전체 모델을 다시 훈련하는 대신, LoRA는 사전 훈련된 모델을 고정하고 각 모델 층에 작은 크기의 훈련 가능한 행렬을 추가합니다. 이러한 행렬들은 모든 매개변수를 변경하지 않고도 모델이 다양한 작업에 적응하도록 돕습니다.
+- 이 예제는 "Fine-tuning Large Language Models(LLMs)" 논문을 기반으로 만들어졌습니다.
+- SageMaker에서 Naver sentiment movie corpus 한국어 데이터셋을 사용하여 Hugginface의 LoraConfig 클래스를 사용한 LoRA의 low rank Adaptation 파인튜닝 기법으로 텍스트 분류 모델을 훈련하는 코드를 포함하고 있습니다.
+- Huggingface PEFT LoRA의 사용방법과 이해에 초점을 맞춘 코드로 모델은 간단한 BERT를 사용합니다. 
+- LoRA는 언어 모델을 더욱 적응성 있고 효율적으로 만드는 방법입니다. 각 작업에 대해 전체 모델을 다시 훈련하는 대신, LoRA는 사전 훈련된 모델을 고정하고 각 모델 층에 작은 크기의 훈련 가능한 행렬을 추가합니다. 이러한 행렬들은 모든 매개변수를 변경하지 않고도 모델이 다양한 작업에 적응하도록 돕습니다.
 
 ## Table of Contents
 - [환경설정](#환경설정)
 - [사용법](#사용법)
-- [모델 아키텍처](#모델 아키텍처)
+- [모델아키텍처](#모델아키텍처)
 - [학습](#학습)
 - [추론](#추론)
 - [References](#references)
@@ -77,7 +80,7 @@ Naver sentiment movie corpus은 한국어 영화 리뷰에서 가져온 문장�
 ---------------------------------------
 
 
-## 모델 아키텍처
+## 모델아키텍처
 
 이 코드는 사전 훈련된 언어 모델 아키텍처를 기반으로 하는 텍스트 분류 모델을 사용합니다. LoRA 파인튜닝(fine-tuning)이 이 사전 훈련된 모델을 효율적으로 적응시키기 위해 적용됩니다. LoRA 기술은 가중치 차이의 low-rank 구조를 활용하여 adaptation 성능을 향상시킵니다.
 
